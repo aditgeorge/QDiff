@@ -28,10 +28,12 @@ import beginTest.check_qubit_number as q_number
 import re,random
 import mutation.Mutation_must_diff as must_diff_m
 import compare.compare
+import sys
 
 def execution(pyfile_name:str,reason:str):
     try:
-        os.system('python3.7 ' + pyfile_name)
+        venv_python = sys.executable  # Uses current Python executable (from venv if activated)
+        os.system(venv_python + ' ' + pyfile_name)
     except Exception as e:
         print("OS error:" + str(e))
         print("Save document as:" + pyfile_name)
